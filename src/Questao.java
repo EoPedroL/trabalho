@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
-
 public class Questao {
     public static void main(String [] args) throws InterruptedException {
 
@@ -14,16 +13,17 @@ public class Questao {
 
         Thread.sleep(1000);
 
-        System.out.println("Centro Universitário Alfredo Nasser");
+        System.out.println();
+        System.out.println("Universidade: Centro Universitário Alfredo Nasser");
         System.out.println("Aluno: Pedro Lucas Pacheco Pessoa.");
         System.out.println("Disciplina: Algoritmos e Programação II.");
         System.out.println("Professor: Brenno Pimenta.");
         System.out.println();
 
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         System.out.println("Vamos começar!!");
 
-        Thread.sleep(3000);
+        Thread.sleep(2000);
 
         System.out.println();
         System.out.println("-----------------------------------------");
@@ -37,7 +37,7 @@ public class Questao {
         System.out.println("Por favor escreva com as letras maiúsculas!! 'Caps Lock'");
         System.out.println();
 
-        Thread.sleep(3000);
+        Thread.sleep(2000);
 
         perguntas.add("Qual é o animal mais rápido do mundo?");
         alternativas.add(" A) Águia\n B) Cavalo\n C) Guepardo\n D) Tigre\n E) Falcão");
@@ -115,12 +115,31 @@ public class Questao {
             }
             System.out.println();
         }
+        Thread.sleep(1000);
 
+        System.out.println("Acabou as perguntas, espere o resultado.");
+        System.out.println();
+
+        Thread.sleep(3000);
+
+        if ( pontos == 15){
+            System.out.println("Parabéns, vc acertou todas as 15° perguntas.");
+        } else if (pontos >= 10){
+            System.out.println("Vc sé saiu muito bem :)");
+        } else if (pontos >= 5){
+            System.out.println("Poderia ser bem melhor, mais fazer oque né");
+        } else {
+            System.out.println("Vc só acertou " + pontos + "    perguntas, tenta de novo ou estude mais");
+        }
+        System.out.println();
         System.out.println("-----------------------------------------");
-        System.out.println("             ACABOU");
-        System.out.println("      Obrigado por jogar");
-        System.out.println("      Vc acertou: " + pontos + " de 15 perguntas" + perguntas.size());
-        System.out.println("-----------------------------------------");
+
+        Thread.sleep(2000);
+
+        System.out.println();
+        System.out.println("Pontual final: " + pontos + " de 15 perguntas.");
+
+        Thread.sleep(1000);
         scanner.close();
     }
 }
