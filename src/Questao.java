@@ -21,9 +21,6 @@ public class Questao {
         System.out.println();
 
         Thread.sleep(2000);
-        System.out.println("Vamos começar!!");
-
-        Thread.sleep(2000);
 
         System.out.println();
         System.out.println("-----------------------------------------");
@@ -34,7 +31,7 @@ public class Questao {
 
         Thread.sleep(3000);
 
-        System.out.println("Por favor escreva com as letras maiúsculas!! 'Caps Lock'");
+        System.out.println("Preparado? \nVamos lá!!!");
         System.out.println();
 
         Thread.sleep(2000);
@@ -103,10 +100,21 @@ public class Questao {
         for (int i = 0; i < perguntas.size(); i++) {
             System.out.println("Pergunta " + (i + 1) + ": " + perguntas.get(i));
             System.out.println(alternativas.get(i));
-            System.out.print("Escolha a opção: ");
-            String resposaUsuario = scanner.nextLine().toLowerCase();
+            String respostaUsuario = "";
+            boolean respostaCAPS = false;
 
-            if (resposaUsuario.equalsIgnoreCase(respostacerta.get(i))) {
+            while (!respostaCAPS) {
+                System.out.print("Escolha a opção: ");
+                respostaUsuario = scanner.nextLine();
+
+                if (respostaUsuario.length() == 1 && Character.isUpperCase(respostaUsuario.charAt(0))) {
+                    respostaCAPS = true;
+                } else {
+                    System.out.println("\nPor favor, digite uma letra maiúscula (A, B, C, D, ou E).\n");
+                }
+            }
+
+            if (respostaUsuario.equals(respostacerta.get(i))) {
                 System.out.println("Resposta Certa!!");
                 pontos++;
             } else {
@@ -117,10 +125,12 @@ public class Questao {
         }
         Thread.sleep(1000);
 
-        System.out.println("Acabou as perguntas, espere o resultado.");
+        System.out.println("Acabou as perguntas \nespere o resultado.");
         System.out.println();
 
         Thread.sleep(3000);
+
+        System.out.println();
 
         if ( pontos == 15){
             System.out.println("Parabéns, vc acertou todas as 15° perguntas.");
@@ -129,7 +139,7 @@ public class Questao {
         } else if (pontos >= 5){
             System.out.println("Poderia ser bem melhor, mais fazer oque né");
         } else {
-            System.out.println("Vc só acertou " + pontos + "    perguntas, tenta de novo ou estude mais");
+            System.out.println("Vc só acertou " + pontos + " perguntas, tenta de novo ou estude mais");
         }
         System.out.println();
         System.out.println("-----------------------------------------");
