@@ -129,6 +129,22 @@ public class Questao {
         alternativas.add(" A) Baleia-Azul\n B) Megalodon\n C) Amphicoelias fragillimus\n D) Baleia-franca\n E) Argentinosaurus");
         respostacerta.add("A");
 
+        perguntas.add();
+        alternativas.add();
+        respostacerta.add();
+
+        perguntas.add();
+        alternativas.add();
+        respostacerta.add();
+
+        perguntas.add();
+        alternativas.add();
+        respostacerta.add();
+
+        perguntas.add();
+        alternativas.add();
+        respostacerta.add();
+
         int pontos = 0;
         for (int i = 0; i < numperguntas; i++) {
             System.out.println("Pergunta " + (i + 1) + ": " + perguntas.get(i));
