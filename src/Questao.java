@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Questao {
-    public static void main(String [] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
         List<String> perguntas = new ArrayList<>();
         List<String> alternativas = new ArrayList<>();
@@ -22,6 +22,24 @@ public class Questao {
 
         Thread.sleep(2000);
 
+        String tipoUsuario = "";
+        while (!tipoUsuario.equals("A") && !tipoUsuario.equals("P")) {
+            System.out.println("Você é um aluno ou professor? (A para Aluno / P para Professor): ");
+            tipoUsuario = scanner.nextLine().toUpperCase();
+            if (!tipoUsuario.equals("A") && !tipoUsuario.equals("P")) {
+                System.out.println("Opção inválida. Digite 'A' para Aluno ou 'P' para Professor.");
+            }
+        }
+
+        System.out.println("Por favor, informe seu nome: ");
+        String nome = scanner.nextLine();
+
+        String curso = "";
+        if (tipoUsuario.equals("A")) {
+        System.out.println("Por favor, informe seu curso: ");
+        curso = scanner.nextLine();
+}
+
         System.out.println();
         System.out.println("-----------------------------------------");
         System.out.println("             Tema do Quiz");
@@ -31,7 +49,22 @@ public class Questao {
 
         Thread.sleep(3000);
 
-        System.out.println("Preparado? \nVamos lá!!!");
+        int numperguntas = 0;
+
+        while (numperguntas < 1 || numperguntas > 15) {
+            System.out.println("Quantas perguntas vc quer responder? ");
+            try {
+                numperguntas = Integer.parseInt(scanner.nextLine());
+                if (numperguntas < 1 || numperguntas > 15) {
+                    System.out.println("A quantidade de perguntas deve ser entre 1 e 15");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Insira um número entre 1 e 15");
+            }
+
+        }
+
+        System.out.println("\nPreparado? \nVamos lá!!!");
         System.out.println();
 
         Thread.sleep(2000);
@@ -97,7 +130,7 @@ public class Questao {
         respostacerta.add("A");
 
         int pontos = 0;
-        for (int i = 0; i < perguntas.size(); i++) {
+        for (int i = 0; i < numperguntas; i++) {
             System.out.println("Pergunta " + (i + 1) + ": " + perguntas.get(i));
             System.out.println(alternativas.get(i));
             String respostaUsuario = "";
@@ -110,7 +143,7 @@ public class Questao {
                 if (respostaUsuario.length() == 1 && Character.isUpperCase(respostaUsuario.charAt(0))) {
                     respostaCAPS = true;
                 } else {
-                    System.out.println("\nPor favor, digite uma letra maiúscula (A, B, C, D, ou E).\n");
+                    System.out.println("\nPor favor, digite uma letra maiúscula (A, B, C, D ou E).\n");
                 }
             }
 
@@ -125,29 +158,23 @@ public class Questao {
         }
         Thread.sleep(1000);
 
-        System.out.println("Acabou as perguntas \nespere o resultado.");
+        System.out.println("Vc concluiu o quiz, obrigado por jogar. \nEspere o resultado.");
         System.out.println();
-
-        Thread.sleep(3000);
-
-        System.out.println();
-
-        if ( pontos == 15){
-            System.out.println("Parabéns, vc acertou todas as 15° perguntas.");
-        } else if (pontos >= 10){
-            System.out.println("Vc sé saiu muito bem :)");
-        } else if (pontos >= 5){
-            System.out.println("Poderia ser bem melhor, mais fazer oque né");
-        } else {
-            System.out.println("Vc só acertou " + pontos + " perguntas, tenta de novo ou estude mais");
-        }
-        System.out.println();
-        System.out.println("-----------------------------------------");
 
         Thread.sleep(2000);
 
-        System.out.println();
-        System.out.println("Pontual final: " + pontos + " de 15 perguntas.");
+        System.out.println("Questionario final.");
+        Thread.sleep(1000);
+
+        if (tipoUsuario.equals("P")){
+            System.out.println("Nome do professor: " + tipoUsuario);
+        } else if (tipoUsuario.equals("A")) {
+            System.out.println("Nome aluno: " + tipoUsuario);
+            System.out.println("Curso: " + curso);
+        }
+        System.out.println("Sua pontuação foi: " + pontos + "\nTotal de perguntas que vc respondeu foi: " + numperguntas);
+
+        System.out.println("\n-----------------------------------------");
 
         Thread.sleep(1000);
         scanner.close();
