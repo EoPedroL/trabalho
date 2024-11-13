@@ -35,10 +35,12 @@ public class Questao {
         String nome = scanner.nextLine();
 
         String curso = "";
-        if (tipoUsuario.equals("A")) {
+        if (tipoUsuario.equals("a")) {
         System.out.println("Por favor, informe seu curso: ");
         curso = scanner.nextLine();
 }
+
+        Thread.sleep(2000);
 
         System.out.println();
         System.out.println("-----------------------------------------");
@@ -47,24 +49,24 @@ public class Questao {
         System.out.println("-----------------------------------------");
         System.out.println();
 
-        Thread.sleep(3000);
+        Thread.sleep(2000);
 
         int numperguntas = 0;
 
-        while (numperguntas < 1 || numperguntas > 15) {
+        while (numperguntas < 1 || numperguntas > 18) {
             System.out.println("Quantas perguntas vc quer responder? ");
             try {
                 numperguntas = Integer.parseInt(scanner.nextLine());
-                if (numperguntas < 1 || numperguntas > 15) {
-                    System.out.println("A quantidade de perguntas deve ser entre 1 e 15");
+                if (numperguntas < 1 || numperguntas > 18) {
+                    System.out.println("A quantidade de perguntas deve ser entre 1 e 18");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Insira um número entre 1 e 15");
+                System.out.println("Insira um número entre 1 e 18");
             }
 
         }
 
-        System.out.println("\nPreparado? \nVamos lá!!!");
+        System.out.println("Preparado? \nVamos lá!!!");
         System.out.println();
 
         Thread.sleep(2000);
@@ -137,13 +139,9 @@ public class Questao {
         alternativas.add(" A) Estados Unidos\n B) Austrália\n C) Russia\n D) Brasil\n E) Itália");
         respostacerta.add("D");
 
-        perguntas.add();
-        alternativas.add();
-        respostacerta.add();
-
-        perguntas.add();
-        alternativas.add();
-        respostacerta.add();
+        perguntas.add("Oque o Boitatá é?");
+        alternativas.add(" A) Gato\n B) Cobra\n C) Boi\n D) Cavalo\n E) Tatu");
+        respostacerta.add("C");
 
         int pontos = 0;
         for (int i = 0; i < numperguntas; i++) {
@@ -179,18 +177,23 @@ public class Questao {
 
         Thread.sleep(2000);
 
+        System.out.println("-----------------------------------------");
         System.out.println("Questionario final.");
-        Thread.sleep(1000);
+        System.out.println("-----------------------------------------");
+        Thread.sleep(2000);
 
         if (tipoUsuario.equals("P")){
             System.out.println("Nome do professor: " + tipoUsuario);
-        } else if (tipoUsuario.equals("A")) {
+        } else if (tipoUsuario.equals("a")) {
             System.out.println("Nome aluno: " + tipoUsuario);
             System.out.println("Curso: " + curso);
         }
-        System.out.println("Sua pontuação foi: " + pontos + "\nTotal de perguntas que vc respondeu foi: " + numperguntas);
 
         System.out.println("\n-----------------------------------------");
+        System.out.println("");
+        System.out.println("Sua pontuação foi: " + pontos + "\nTotal de perguntas que vc respondeu foi: " + numperguntas);
+
+        System.out.println("-----------------------------------------");
 
         Thread.sleep(1000);
         scanner.close();
