@@ -129,9 +129,9 @@ public class Questao {
         alternativas.add(" A) Baleia-Azul\n B) Megalodon\n C) Amphicoelias fragillimus\n D) Baleia-franca\n E) Argentinosaurus");
         respostacerta.add("A");
 
-        perguntas.add();
-        alternativas.add();
-        respostacerta.add();
+        perguntas.add("Em qual ano os dinossauros existiram?");
+        alternativas.add(" A) 50 anos atrás\n B) 48 anos atrás\n C) 65 anos atrás\n D) 77 anos atrás\n E) 59 anos atrás");
+        respostacerta.add("C");
 
         perguntas.add();
         alternativas.add();
