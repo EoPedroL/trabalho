@@ -133,9 +133,9 @@ public class Questao {
         alternativas.add(" A) 50 anos atrás\n B) 48 anos atrás\n C) 65 anos atrás\n D) 77 anos atrás\n E) 59 anos atrás");
         respostacerta.add("C");
 
-        perguntas.add();
-        alternativas.add();
-        respostacerta.add();
+        perguntas.add("Qual e o país que tem a ilhas das cobras?");
+        alternativas.add(" A) Estados Unidos\n B) Austrália\n C) Russia\n D) Brasil\n E) Itália");
+        respostacerta.add("D");
 
         perguntas.add();
         alternativas.add();
