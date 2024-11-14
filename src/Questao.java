@@ -25,10 +25,23 @@ public class Questao {
         String tipoUsuario = "";
         while (!tipoUsuario.equals("A") && !tipoUsuario.equals("P")) {
             System.out.println("Você é um aluno ou professor? (A para Aluno / P para Professor): ");
-            tipoUsuario = scanner.nextLine().toUpperCase();
-            if (!tipoUsuario.equals("A") && !tipoUsuario.equals("P")) {
-                System.out.println("Opção inválida. Digite 'A' para Aluno ou 'P' para Professor.");
+
+            tipoUsuario = scanner.next();
+            if (tipoUsuario.length() == 1 && Character.isUpperCase(tipoUsuario.charAt(0))) {
+                if (tipoUsuario.equals("A") || tipoUsuario.equals("P")) {
+                    break;
+                } else {
+                    System.out.println("Opção inválida. Digite 'A' para Aluno ou 'P' para Professor.");
+                }
+            } else {
+                System.out.println("Por favor, digite apenas a letra maiúscula (A ou P)\n");
             }
+        }
+
+        if (tipoUsuario.equals("A")) {
+            System.out.println("Você escolheu: Aluno");
+        } else {
+            System.out.println("Você escolheu: Professor");
         }
 
         System.out.println("\nPor favor, informe seu nome: ");
@@ -57,11 +70,11 @@ public class Questao {
             System.out.println("Quantas perguntas vc quer responder? (TOTAL DE PERGUNTAS: 20");
             try {
                 numperguntas = Integer.parseInt(scanner.nextLine());
-                if (numperguntas < 1 || numperguntas > 18) {
-                    System.out.println("A quantidade de perguntas deve ser entre 1 e 18");
+                if (numperguntas < 1 || numperguntas > 20) {
+                    System.out.println("A quantidade de perguntas deve ser entre 1 e 20");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Insira um número entre 1 e 18");
+                System.out.println("Insira um número entre 1 e 20");
             }
 
         }
@@ -143,6 +156,14 @@ public class Questao {
         alternativas.add(" A) Gato\n B) Cobra\n C) Boi\n D) Cavalo\n E) Tatu");
         respostacerta.add("C");
 
+        perguntas.add("Quantos coração um polvo tem? ");
+        alternativas.add(" A) 5\n B) 3\n C) 4\n D) 1\n E) 2");
+        respostacerta.add("B");
+
+        perguntas.add(" Por qual parte do corpo temos como saber a diferença entre um crocodilo e um jacaré");
+        alternativas.add(" A) Pelos dentes\n B) Pelos olhos\n C) Pelo focinho\n D) Pela pele\n E) Pelas patas");
+        respostacerta.add("C");
+
         int pontos = 0;
         for (int i = 0; i < numperguntas; i++) {
             System.out.println("Pergunta " + (i + 1) + ": " + perguntas.get(i));
@@ -177,9 +198,7 @@ public class Questao {
 
         Thread.sleep(2000);
 
-        System.out.println("-----------------------------------------");
         System.out.println("Questionario final.");
-        System.out.println("-----------------------------------------");
         System.out.println();
         Thread.sleep(2000);
 
@@ -194,7 +213,7 @@ public class Questao {
 
         System.out.println("\n-----------------------------------------");
         System.out.println("");
-        System.out.println("Sua pontuação foi: " + pontos + "\nTotal de perguntas que vc respondeu foi: " + numperguntas);
+        System.out.println("Sua pontuação foi de: " + pontos + "°" + "\nTotal de perguntas que vc respondeu: " + numperguntas);
 
 
         Thread.sleep(1000);
