@@ -31,12 +31,12 @@ public class Questao {
             }
         }
 
-        System.out.println("Por favor, informe seu nome: ");
+        System.out.println("\nPor favor, informe seu nome: ");
         String nome = scanner.nextLine();
 
         String curso = "";
-        if (tipoUsuario.equals("a")) {
-        System.out.println("Por favor, informe seu curso: ");
+        if (tipoUsuario.equals("A")) {
+        System.out.println("\nPor favor, informe seu curso: ");
         curso = scanner.nextLine();
 }
 
@@ -54,7 +54,7 @@ public class Questao {
         int numperguntas = 0;
 
         while (numperguntas < 1 || numperguntas > 18) {
-            System.out.println("Quantas perguntas vc quer responder? ");
+            System.out.println("Quantas perguntas vc quer responder? (TOTAL DE PERGUNTAS: 20");
             try {
                 numperguntas = Integer.parseInt(scanner.nextLine());
                 if (numperguntas < 1 || numperguntas > 18) {
@@ -180,12 +180,15 @@ public class Questao {
         System.out.println("-----------------------------------------");
         System.out.println("Questionario final.");
         System.out.println("-----------------------------------------");
+        System.out.println();
         Thread.sleep(2000);
 
+
+        System.out.println("-----------------------------------------");
         if (tipoUsuario.equals("P")){
-            System.out.println("Nome do professor: " + tipoUsuario);
-        } else if (tipoUsuario.equals("a")) {
-            System.out.println("Nome aluno: " + tipoUsuario);
+            System.out.println("Nome do professor: " + nome);
+        } else if (tipoUsuario.equals("A")) {
+            System.out.println("Nome aluno: " + nome);
             System.out.println("Curso: " + curso);
         }
 
@@ -193,7 +196,6 @@ public class Questao {
         System.out.println("");
         System.out.println("Sua pontuação foi: " + pontos + "\nTotal de perguntas que vc respondeu foi: " + numperguntas);
 
-        System.out.println("-----------------------------------------");
 
         Thread.sleep(1000);
         scanner.close();
